@@ -207,6 +207,72 @@
       font-weight: 500;
     }
 
+    /* FEATURED */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .featured-article {
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .featured-article:hover {
+      border-color: #c8c8c8;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .featured-article img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .featured-article-body {
+      padding: 1.2rem;
+    }
+
+    .featured-article-body .source {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 0.4rem;
+    }
+
+    .featured-article-body h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #111;
+    }
+
+    .featured-embed {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e8e8e8;
+    }
+
+    .featured-embed iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+
+    @media (max-width: 680px) {
+      .featured-grid { grid-template-columns: 1fr; }
+    }
+
     /* FOOTER */
     footer {
       border-top: 1px solid #f0f0f0;
@@ -305,6 +371,22 @@
           <span class="tag">Regression</span>
         </div>
       </a>
+    </div>
+  </div>
+
+  <div class="section" id="featured">
+    <p class="section-label">In the News</p>
+    <div class="featured-grid">
+      <a class="featured-article" href="https://environment.yale.edu/news/article/christian-dadzie-25-mem-engineering-cleaner-future" target="_blank">
+        <img src="https://environment.yale.edu/sites/default/files/styles/metatag_1080x1080/public/2025-05/Dadzie_portrait_r1.jpg" alt="Christian Dadzie at Yale School of the Environment" />
+        <div class="featured-article-body">
+          <p class="source">Yale School of the Environment</p>
+          <h3>Christian Dadzie '25 MEM: Engineering a Cleaner Future</h3>
+        </div>
+      </a>
+      <div class="featured-embed">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7170529465129754625?collapsed=1" height="400" frameborder="0" allowfullscreen="" title="Yale Environment LinkedIn Feature"></iframe>
+      </div>
     </div>
   </div>
 
