@@ -8,9 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Inter', sans-serif;
       background: #fff;
@@ -18,8 +16,6 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
-
-    /* NAV */
     nav {
       display: flex;
       justify-content: space-between;
@@ -32,7 +28,6 @@
       backdrop-filter: blur(10px);
       z-index: 100;
     }
-
     .nav-name {
       font-weight: 600;
       font-size: 0.95rem;
@@ -40,7 +35,6 @@
       color: #111;
       text-decoration: none;
     }
-
     .nav-links a {
       color: #666;
       text-decoration: none;
@@ -48,10 +42,7 @@
       font-size: 0.875rem;
       transition: color 0.15s;
     }
-
     .nav-links a:hover { color: #111; }
-
-    /* HERO */
     .hero {
       max-width: 860px;
       margin: 0 auto;
@@ -61,7 +52,6 @@
       gap: 4rem;
       align-items: center;
     }
-
     .hero-text h1 {
       font-size: 3rem;
       font-weight: 700;
@@ -70,7 +60,6 @@
       margin-bottom: 1.1rem;
       color: #0a0a0a;
     }
-
     .hero-text .tagline {
       color: #666;
       font-size: 0.95rem;
@@ -78,13 +67,7 @@
       margin-bottom: 2rem;
       line-height: 1.5;
     }
-
-    .hero-actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
     .btn {
       display: inline-block;
       padding: 0.6rem 1.3rem;
@@ -94,17 +77,9 @@
       text-decoration: none;
       transition: opacity 0.15s, transform 0.15s;
     }
-
     .btn:hover { opacity: 0.75; transform: translateY(-1px); }
-
     .btn-dark { background: #111; color: #fff; }
-
-    .btn-outline {
-      border: 1px solid #ddd;
-      color: #333;
-      background: transparent;
-    }
-
+    .btn-outline { border: 1px solid #ddd; color: #333; background: transparent; }
     .hero-photo img {
       width: 220px;
       height: 260px;
@@ -114,23 +89,18 @@
       display: block;
       filter: grayscale(8%);
     }
-
-    /* SECTIONS */
     .section {
       max-width: 680px;
       margin: 0 auto;
       padding: 4.5rem 2rem;
       border-top: 1px solid #f0f0f0;
     }
-
-    /* Wider variant for the news section */
     .section-wide {
       max-width: 960px;
       margin: 0 auto;
       padding: 4.5rem 2rem;
       border-top: 1px solid #f0f0f0;
     }
-
     .section-label {
       font-size: 0.7rem;
       font-weight: 600;
@@ -142,7 +112,6 @@
       align-items: center;
       gap: 0.6rem;
     }
-
     .section-label::after {
       content: '';
       flex: 1;
@@ -150,22 +119,14 @@
       background: #f0f0f0;
       display: block;
     }
-
     .section p {
       font-size: 1rem;
       color: #2a2a2a;
       margin-bottom: 1.5rem;
       line-height: 1.8;
     }
-
     .section p:last-child { margin-bottom: 0; }
-
-    /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      gap: 1rem;
-    }
-
+    .projects-grid { display: grid; gap: 1rem; }
     .project-card {
       border: 1px solid #e8e8e8;
       border-radius: 12px;
@@ -173,36 +134,34 @@
       text-decoration: none;
       color: inherit;
       display: block;
+      overflow: hidden;
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
-
     .project-card:hover {
       border-color: #c8c8c8;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
       transform: translateY(-2px);
     }
-
+    .card-image {
+      margin: -1.6rem -1.6rem 1.2rem;
+      height: 155px;
+      overflow: hidden;
+      border-radius: 11px 11px 0 0;
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .project-card h3 {
       font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
       color: #111;
     }
-
-    .project-card p {
-      font-size: 0.875rem;
-      color: #666;
-      margin: 0;
-      line-height: 1.6;
-    }
-
-    .tags {
-      margin-top: 1rem;
-      display: flex;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-
+    .project-card p { font-size: 0.875rem; color: #666; margin: 0; line-height: 1.6; }
+    .tags { margin-top: 1rem; display: flex; gap: 0.4rem; flex-wrap: wrap; }
     .tag {
       background: #f5f5f5;
       color: #555;
@@ -211,15 +170,12 @@
       border-radius: 4px;
       font-weight: 500;
     }
-
-    /* FEATURED */
     .featured-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1.4fr;
       gap: 1.5rem;
       align-items: start;
     }
-
     .featured-article {
       border: 1px solid #e8e8e8;
       border-radius: 12px;
@@ -229,24 +185,13 @@
       display: block;
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
-
     .featured-article:hover {
       border-color: #c8c8c8;
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
       transform: translateY(-2px);
     }
-
-    .featured-article img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .featured-article-body {
-      padding: 1.2rem;
-    }
-
+    .featured-article img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .featured-article-body { padding: 1.2rem; }
     .featured-article-body .source {
       font-size: 0.7rem;
       font-weight: 600;
@@ -255,31 +200,10 @@
       color: #aaa;
       margin-bottom: 0.4rem;
     }
-
-    .featured-article-body h3 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      line-height: 1.4;
-      color: #111;
-    }
-
-    .featured-embed {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #e8e8e8;
-    }
-
-    .featured-embed iframe {
-      display: block;
-      width: 100%;
-      border: none;
-    }
-
-    @media (max-width: 720px) {
-      .featured-grid { grid-template-columns: 1fr; }
-    }
-
-    /* FOOTER */
+    .featured-article-body h3 { font-size: 0.9rem; font-weight: 600; line-height: 1.4; color: #111; }
+    .featured-embed { border-radius: 12px; overflow: hidden; border: 1px solid #e8e8e8; }
+    .featured-embed iframe { display: block; width: 100%; border: none; }
+    @media (max-width: 720px) { .featured-grid { grid-template-columns: 1fr; } }
     footer {
       border-top: 1px solid #f0f0f0;
       text-align: center;
@@ -287,29 +211,14 @@
       color: #bbb;
       font-size: 0.82rem;
     }
-
     footer a { color: #999; text-decoration: none; }
     footer a:hover { color: #444; }
-
-    /* MOBILE */
     @media (max-width: 680px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 3rem;
-        gap: 2.5rem;
-      }
-
+      .hero { grid-template-columns: 1fr; padding-top: 3rem; gap: 2.5rem; }
       .hero-photo { order: -1; }
-
-      .hero-photo img {
-        width: 120px;
-        height: 145px;
-      }
-
+      .hero-photo img { width: 120px; height: 145px; }
       .hero-text h1 { font-size: 2.2rem; }
-
       nav { padding: 1rem 1.25rem; }
-
       .nav-links a { margin-left: 1.1rem; }
     }
   </style>
@@ -328,7 +237,7 @@
   <div class="hero">
     <div class="hero-text">
       <h1>Energy Systems.<br>Data. Impact.</h1>
-      <p class="tagline">Energy &amp; Sustainability Analyst &nbsp;·&nbsp; Yale MEM &nbsp;·&nbsp; King Energy</p>
+      <p class="tagline">Energy &amp; Sustainability Analyst &nbsp;&middot;&nbsp; Yale MEM &nbsp;&middot;&nbsp; King Energy</p>
       <div class="hero-actions">
         <a class="btn btn-dark" href="https://mail.google.com/mail/?view=cm&fs=1&to=christiandadzie.q@gmail.com" target="_blank">Get in touch</a>
         <a class="btn btn-outline" href="#projects">See projects</a>
@@ -343,7 +252,7 @@
     <p class="section-label">About</p>
     <p>Growing up, it was either Medicine or Pharmacy. Watching the life story of Dr. Ben Carson in Gifted Hands, and seeing my older brother become a doctor, made me picture myself as a neurosurgeon. When I did not qualify for medical school, I pursued Petroleum Engineering at KNUST instead, a field I was not initially drawn to.</p>
     <p>I struggled to find my footing at first. What changed things was a second-year project where every engineering student had to propose an idea using engineering principles to solve a societal problem. Working on a waste-to-energy concept let me draw from my lived experience, and for the first time, I connected what I was learning to the energy challenges I had grown up around. It marked the beginning of a longer curiosity.</p>
-    <p>After graduating, I worked in Ghana's upstream oil and gas sector, where I saw a country with significant natural gas resources still struggling to meet its own power demand. The engineering was rarely the constraint. Driven by a desire to contribute to the energy transition rather than just observe it, I pursued a Master's in Energy and Environment at Yale, focusing on energy systems, policy, project finance, and data science.</p>
+    <p>After graduating, I worked in Ghana&#39;s upstream oil and gas sector, where I saw a country with significant natural gas resources still struggling to meet its own power demand. The engineering was rarely the constraint. Driven by a desire to contribute to the energy transition rather than just observe it, I pursued a Master&#39;s in Energy and Environment at Yale, focusing on energy systems, policy, project finance, and data science.</p>
     <p>Since then, my work has focused on data-driven sustainability strategy across different contexts: battery storage market analysis, state decarbonization planning, sustainability program evaluation, and fleet decarbonization. I now work in utility solar operations and analytics at King Energy in California.</p>
     <p>Outside of work, I serve as vocal director for my church choir. When I am not doing that, you will find me watching a movie or in a good conversation with friends.</p>
     <p>I believe learning is a lifelong journey. Some of my most meaningful lessons have come from conversations, mentors, and unexpected experiences. I try to approach every opportunity with curiosity and a desire to leave things better than I found them. My faith in God is the foundation that shapes how I try to live and work.</p>
@@ -352,9 +261,13 @@
   <div class="section" id="projects">
     <p class="section-label">Projects</p>
     <div class="projects-grid">
+
       <a class="project-card" href="https://business.edf.org/climate-corps/projects/brandsafway-christian-dadzie-2025/" target="_blank">
+        <div class="card-image">
+          <img src="https://business.edf.org/app/uploads/2026/01/FellowshipPhoto_2025_U.S._Christian_Dadzie_14_10_2025_1_58_14.jpg" alt="EDF Climate Corps Fellowship photo" />
+        </div>
         <h3>Fleet Decarbonization Roadmap - BrandSafway - EDF Climate Corps</h3>
-        <p>Developed a data-driven roadmap to reduce fuel consumption and GHG emissions across BrandSafway's North American fleet. Quantified ~$1.5M in potential cost avoidance and up to 3,400 MT CO&#x2082; through behavioral, organizational, and technology analysis of telematics data.</p>
+        <p>Developed a data-driven roadmap to reduce fuel consumption and GHG emissions across BrandSafway&#39;s North American fleet. Quantified ~$1.5M in potential cost avoidance and up to 3,400 MT CO&#x2082; through behavioral, organizational, and technology analysis of telematics data.</p>
         <div class="tags">
           <span class="tag">Python</span>
           <span class="tag">Telematics Analysis</span>
@@ -363,7 +276,11 @@
           <span class="tag">EDF Climate Corps</span>
         </div>
       </a>
+
       <a class="project-card" href="https://github.com/christiandadzie/chicago-solar-suitability-gis" target="_blank">
+        <div class="card-image">
+          <img src="img-chicago.jpg" alt="Belmont Cragin solar suitability map - Chicago" />
+        </div>
         <h3>Chicago Solar Suitability Analysis</h3>
         <p>GIS-based analysis identifying the most solar-suitable neighborhoods in Chicago using rooftop potential, grid infrastructure, and demographic data. Found Belmont Cragin as the highest-priority corridor.</p>
         <div class="tags">
@@ -373,7 +290,11 @@
           <span class="tag">Spatial Analysis</span>
         </div>
       </a>
+
       <a class="project-card" href="https://github.com/christiandadzie/final-project-solar-team" target="_blank">
+        <div class="card-image">
+          <img src="img-equity.jpg" alt="U.S. county solar equity priority map" />
+        </div>
         <h3>Solar Energy Equity &amp; Data Science</h3>
         <p>County-level analysis identifying where high energy burden and solar potential overlap across the U.S., combining k-means clustering with spatial autocorrelation to understand patterns in solar adoption and socioeconomic need.</p>
         <div class="tags">
@@ -383,9 +304,13 @@
           <span class="tag">K-Means Clustering</span>
         </div>
       </a>
+
       <a class="project-card" href="https://github.com/christiandadzie/methane-flux-okavango" target="_blank">
+        <div class="card-image">
+          <img src="img-okavango.jpg" alt="Okavango Delta spatial raster" />
+        </div>
         <h3>Mapping Methane Across the Okavango Delta</h3>
-        <p>Used global FLUXNET tower data to train a Random Forest model predicting wetland methane emissions, then applied it spatially to map seasonal flux patterns across the Okavango Delta, one of Africa's largest and most carbon-significant wetland ecosystems.</p>
+        <p>Used global FLUXNET tower data to train a Random Forest model predicting wetland methane emissions, then applied it spatially to map seasonal flux patterns across the Okavango Delta, one of Africa&#39;s largest and most carbon-significant wetland ecosystems.</p>
         <div class="tags">
           <span class="tag">R</span>
           <span class="tag">Random Forest</span>
@@ -393,6 +318,7 @@
           <span class="tag">FLUXNET</span>
         </div>
       </a>
+
     </div>
   </div>
 
@@ -403,7 +329,7 @@
         <img src="https://environment.yale.edu/sites/default/files/styles/metatag_1080x1080/public/2025-05/Dadzie_portrait_r1.jpg" alt="Christian Dadzie at Yale School of the Environment" />
         <div class="featured-article-body">
           <p class="source">Yale School of the Environment</p>
-          <h3>Christian Dadzie '25 MEM: Engineering a Cleaner Future</h3>
+          <h3>Christian Dadzie &#39;25 MEM: Engineering a Cleaner Future</h3>
         </div>
       </a>
       <a class="featured-article" href="https://business.edf.org/climate-corps/projects/brandsafway-christian-dadzie-2025/" target="_blank">
@@ -420,7 +346,7 @@
   </div>
 
   <footer>
-    <p>Christian Dadzie &nbsp;·&nbsp; <a href="https://mail.google.com/mail/?view=cm&fs=1&to=christiandadzie.q@gmail.com" target="_blank">christiandadzie.q@gmail.com</a></p>
+    <p>Christian Dadzie &nbsp;&middot;&nbsp; <a href="https://mail.google.com/mail/?view=cm&fs=1&to=christiandadzie.q@gmail.com" target="_blank">christiandadzie.q@gmail.com</a></p>
   </footer>
 
 </body>
