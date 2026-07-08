@@ -9,6 +9,8 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Inter', sans-serif;
       background: #fff;
@@ -90,8 +92,10 @@
       font-size: 0.875rem;
       font-weight: 500;
       text-decoration: none;
-      transition: opacity 0.15s;
+      transition: opacity 0.15s, transform 0.15s;
     }
+
+    .btn:hover { opacity: 0.75; transform: translateY(-1px); }
 
     .btn-dark {
       background: #111;
@@ -104,8 +108,6 @@
       background: transparent;
     }
 
-    .btn:hover { opacity: 0.75; }
-
     .hero-photo img {
       width: 220px;
       height: 260px;
@@ -114,20 +116,6 @@
       border-radius: 14px;
       display: block;
       filter: grayscale(8%);
-    }
-
-    .hero-photo .photo-placeholder {
-      width: 220px;
-      height: 260px;
-      border-radius: 14px;
-      background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #aaa;
-      font-size: 0.8rem;
-      text-align: center;
-      padding: 1rem;
     }
 
     /* SECTIONS */
@@ -145,6 +133,17 @@
       text-transform: uppercase;
       color: #aaa;
       margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #f0f0f0;
+      display: block;
     }
 
     .section p {
@@ -169,12 +168,13 @@
       text-decoration: none;
       color: inherit;
       display: block;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
 
     .project-card:hover {
       border-color: #c8c8c8;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+      transform: translateY(-2px);
     }
 
     .project-card h3 {
@@ -207,16 +207,17 @@
       font-weight: 500;
     }
 
+    .tag-accent {
+      background: #f0fdf4;
+      color: #16a34a;
+    }
+
     /* FEATURED */
     .featured-grid {
       display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 1.5rem;
-    }
-
-    .featured-articles {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      align-items: start;
     }
 
     .featured-article {
@@ -226,17 +227,18 @@
       text-decoration: none;
       color: inherit;
       display: block;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
 
     .featured-article:hover {
       border-color: #c8c8c8;
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
     }
 
     .featured-article img {
       width: 100%;
-      height: 160px;
+      height: 150px;
       object-fit: cover;
       display: block;
     }
@@ -274,7 +276,7 @@
     }
 
     @media (max-width: 680px) {
-      .featured-articles { grid-template-columns: 1fr; }
+      .featured-grid { grid-template-columns: 1fr; }
     }
 
     /* FOOTER */
@@ -303,8 +305,7 @@
 
       .hero-photo { order: -1; }
 
-      .hero-photo img,
-      .hero-photo .photo-placeholder {
+      .hero-photo img {
         width: 120px;
         height: 145px;
       }
@@ -356,14 +357,14 @@
     <p class="section-label">Projects</p>
     <div class="projects-grid">
       <a class="project-card" href="https://business.edf.org/climate-corps/projects/brandsafway-christian-dadzie-2025/" target="_blank">
-        <h3>Fleet Decarbonization Roadmap — BrandSafway · EDF Climate Corps</h3>
-        <p>Developed a data-driven roadmap to reduce fuel consumption and GHG emissions across BrandSafway's North American fleet. Quantified ~$1.5M in potential cost avoidance and up to 3,400 MT CO₂ through behavioral, organizational, and technology analysis of telematics data.</p>
+        <h3>Fleet Decarbonization Roadmap - BrandSafway - EDF Climate Corps</h3>
+        <p>Developed a data-driven roadmap to reduce fuel consumption and GHG emissions across BrandSafway's North American fleet. Quantified ~$1.5M in potential cost avoidance and up to 3,400 MT CO&#x2082; through behavioral, organizational, and technology analysis of telematics data.</p>
         <div class="tags">
           <span class="tag">Python</span>
           <span class="tag">Telematics Analysis</span>
           <span class="tag">GHG Accounting</span>
           <span class="tag">Fleet Analytics</span>
-          <span class="tag">EDF Climate Corps</span>
+          <span class="tag tag-accent">EDF Climate Corps</span>
         </div>
       </a>
       <a class="project-card" href="https://github.com/christiandadzie/chicago-solar-suitability-gis" target="_blank">
@@ -378,12 +379,22 @@
       </a>
       <a class="project-card" href="https://github.com/christiandadzie/final-project-solar-team" target="_blank">
         <h3>Solar Energy Equity &amp; Data Science</h3>
-        <p>Data science analysis exploring patterns in U.S. solar energy distribution, combining spatial autocorrelation with regression modeling to understand the relationship between solar adoption and socioeconomic factors.</p>
+        <p>County-level analysis identifying where high energy burden and solar potential overlap across the U.S., combining k-means clustering with spatial autocorrelation to understand patterns in solar adoption and socioeconomic need.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">GeoPandas</span>
+          <span class="tag">Spatial Autocorrelation</span>
+          <span class="tag">K-Means Clustering</span>
+        </div>
+      </a>
+      <a class="project-card" href="https://github.com/christiandadzie/methane-flux-okavango" target="_blank">
+        <h3>Mapping Methane Across the Okavango Delta</h3>
+        <p>Used global FLUXNET tower data to train a Random Forest model predicting wetland methane emissions, then applied it spatially to map seasonal flux patterns across the Okavango Delta, one of Africa's largest and most carbon-significant wetland ecosystems.</p>
         <div class="tags">
           <span class="tag">R</span>
-          <span class="tag">Python</span>
-          <span class="tag">Spatial Autocorrelation</span>
-          <span class="tag">Regression</span>
+          <span class="tag">Random Forest</span>
+          <span class="tag">Spatial Prediction</span>
+          <span class="tag">FLUXNET</span>
         </div>
       </a>
     </div>
@@ -392,24 +403,22 @@
   <div class="section" id="featured">
     <p class="section-label">In the News</p>
     <div class="featured-grid">
-      <div class="featured-articles">
-        <a class="featured-article" href="https://environment.yale.edu/news/article/christian-dadzie-25-mem-engineering-cleaner-future" target="_blank">
-          <img src="https://environment.yale.edu/sites/default/files/styles/metatag_1080x1080/public/2025-05/Dadzie_portrait_r1.jpg" alt="Christian Dadzie at Yale School of the Environment" />
-          <div class="featured-article-body">
-            <p class="source">Yale School of the Environment</p>
-            <h3>Christian Dadzie '25 MEM: Engineering a Cleaner Future</h3>
-          </div>
-        </a>
-        <a class="featured-article" href="https://business.edf.org/climate-corps/projects/brandsafway-christian-dadzie-2025/" target="_blank">
-          <img src="https://business.edf.org/app/uploads/2026/01/FellowshipPhoto_2025_U.S._Christian_Dadzie_14_10_2025_1_58_14.jpg" alt="Christian Dadzie — EDF Climate Corps 2025" />
-          <div class="featured-article-body">
-            <p class="source">EDF Climate Corps</p>
-            <h3>BrandSafway Fleet Decarbonization — Christian Dadzie, 2025</h3>
-          </div>
-        </a>
-      </div>
+      <a class="featured-article" href="https://environment.yale.edu/news/article/christian-dadzie-25-mem-engineering-cleaner-future" target="_blank">
+        <img src="https://environment.yale.edu/sites/default/files/styles/metatag_1080x1080/public/2025-05/Dadzie_portrait_r1.jpg" alt="Christian Dadzie at Yale School of the Environment" />
+        <div class="featured-article-body">
+          <p class="source">Yale School of the Environment</p>
+          <h3>Christian Dadzie '25 MEM: Engineering a Cleaner Future</h3>
+        </div>
+      </a>
+      <a class="featured-article" href="https://business.edf.org/climate-corps/projects/brandsafway-christian-dadzie-2025/" target="_blank">
+        <img src="https://business.edf.org/app/uploads/2026/01/FellowshipPhoto_2025_U.S._Christian_Dadzie_14_10_2025_1_58_14.jpg" alt="Christian Dadzie - EDF Climate Corps 2025" />
+        <div class="featured-article-body">
+          <p class="source">EDF Climate Corps</p>
+          <h3>BrandSafway Fleet Decarbonization - Christian Dadzie, 2025</h3>
+        </div>
+      </a>
       <div class="featured-embed">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7170529465129754625?collapsed=1" height="400" frameborder="0" allowfullscreen="" title="Yale Environment LinkedIn Feature"></iframe>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7170529465129754625?collapsed=1" height="399" frameborder="0" allowfullscreen="" title="Yale Environment LinkedIn Feature"></iframe>
       </div>
     </div>
   </div>
