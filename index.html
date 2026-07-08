@@ -97,10 +97,7 @@
 
     .btn:hover { opacity: 0.75; transform: translateY(-1px); }
 
-    .btn-dark {
-      background: #111;
-      color: #fff;
-    }
+    .btn-dark { background: #111; color: #fff; }
 
     .btn-outline {
       border: 1px solid #ddd;
@@ -121,6 +118,14 @@
     /* SECTIONS */
     .section {
       max-width: 680px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    /* Wider variant for the news section */
+    .section-wide {
+      max-width: 960px;
       margin: 0 auto;
       padding: 4.5rem 2rem;
       border-top: 1px solid #f0f0f0;
@@ -207,15 +212,10 @@
       font-weight: 500;
     }
 
-    .tag-accent {
-      background: #f0fdf4;
-      color: #16a34a;
-    }
-
     /* FEATURED */
     .featured-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1.4fr;
       gap: 1.5rem;
       align-items: start;
     }
@@ -238,7 +238,7 @@
 
     .featured-article img {
       width: 100%;
-      height: 150px;
+      height: 160px;
       object-fit: cover;
       display: block;
     }
@@ -275,7 +275,7 @@
       border: none;
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 720px) {
       .featured-grid { grid-template-columns: 1fr; }
     }
 
@@ -288,11 +288,7 @@
       font-size: 0.82rem;
     }
 
-    footer a {
-      color: #999;
-      text-decoration: none;
-    }
-
+    footer a { color: #999; text-decoration: none; }
     footer a:hover { color: #444; }
 
     /* MOBILE */
@@ -364,7 +360,7 @@
           <span class="tag">Telematics Analysis</span>
           <span class="tag">GHG Accounting</span>
           <span class="tag">Fleet Analytics</span>
-          <span class="tag tag-accent">EDF Climate Corps</span>
+          <span class="tag">EDF Climate Corps</span>
         </div>
       </a>
       <a class="project-card" href="https://github.com/christiandadzie/chicago-solar-suitability-gis" target="_blank">
@@ -400,7 +396,7 @@
     </div>
   </div>
 
-  <div class="section" id="featured">
+  <div class="section-wide" id="featured">
     <p class="section-label">In the News</p>
     <div class="featured-grid">
       <a class="featured-article" href="https://environment.yale.edu/news/article/christian-dadzie-25-mem-engineering-cleaner-future" target="_blank">
