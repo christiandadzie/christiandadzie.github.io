@@ -16,6 +16,8 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
+
+    /* NAV */
     nav {
       display: flex;
       justify-content: space-between;
@@ -24,7 +26,7 @@
       border-bottom: 1px solid #efefef;
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255,255,255,0.94);
       backdrop-filter: blur(10px);
       z-index: 100;
     }
@@ -43,6 +45,8 @@
       transition: color 0.15s;
     }
     .nav-links a:hover { color: #111; }
+
+    /* HERO */
     .hero {
       max-width: 860px;
       margin: 0 auto;
@@ -89,6 +93,8 @@
       display: block;
       filter: grayscale(8%);
     }
+
+    /* SECTIONS */
     .section {
       max-width: 680px;
       margin: 0 auto;
@@ -97,6 +103,12 @@
     }
     .section-wide {
       max-width: 960px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem;
+      border-top: 1px solid #f0f0f0;
+    }
+    .section-projects {
+      max-width: 860px;
       margin: 0 auto;
       padding: 4.5rem 2rem;
       border-top: 1px solid #f0f0f0;
@@ -126,50 +138,65 @@
       line-height: 1.8;
     }
     .section p:last-child { margin-bottom: 0; }
-    .projects-grid { display: grid; gap: 1rem; }
+
+    /* PROJECTS — 2-col grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
     .project-card {
       border: 1px solid #e8e8e8;
       border-radius: 12px;
-      padding: 1.6rem;
+      padding: 1.5rem 1.6rem 1.6rem;
       text-decoration: none;
       color: inherit;
       display: block;
-      overflow: hidden;
+      position: relative;
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+      opacity: 0.7;
+    }
+    .project-card.accent-blue::before   { background: #3b7bda; }
+    .project-card.accent-orange::before { background: #e07a30; }
+    .project-card.accent-green::before  { background: #2a9e6b; }
+    .project-card.accent-purple::before { background: #7b4ea6; }
     .project-card:hover {
       border-color: #c8c8c8;
       box-shadow: 0 4px 20px rgba(0,0,0,0.07);
       transform: translateY(-2px);
     }
-    .card-image {
-      margin: -1.6rem -1.6rem 1.2rem;
-      height: 155px;
-      overflow: hidden;
-      border-radius: 11px 11px 0 0;
-    }
-    .card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .project-card:hover::before { opacity: 1; }
     .project-card h3 {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
       color: #111;
+      line-height: 1.4;
     }
-    .project-card p { font-size: 0.875rem; color: #666; margin: 0; line-height: 1.6; }
-    .tags { margin-top: 1rem; display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .project-card p {
+      font-size: 0.84rem;
+      color: #666;
+      margin: 0;
+      line-height: 1.65;
+    }
+    .tags { margin-top: 1rem; display: flex; gap: 0.35rem; flex-wrap: wrap; }
     .tag {
       background: #f5f5f5;
       color: #555;
-      font-size: 0.72rem;
-      padding: 0.2rem 0.65rem;
+      font-size: 0.7rem;
+      padding: 0.18rem 0.6rem;
       border-radius: 4px;
       font-weight: 500;
     }
+
+    /* FEATURED */
     .featured-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1.4fr;
@@ -204,6 +231,8 @@
     .featured-embed { border-radius: 12px; overflow: hidden; border: 1px solid #e8e8e8; }
     .featured-embed iframe { display: block; width: 100%; border: none; }
     @media (max-width: 720px) { .featured-grid { grid-template-columns: 1fr; } }
+
+    /* FOOTER */
     footer {
       border-top: 1px solid #f0f0f0;
       text-align: center;
@@ -213,6 +242,8 @@
     }
     footer a { color: #999; text-decoration: none; }
     footer a:hover { color: #444; }
+
+    /* MOBILE */
     @media (max-width: 680px) {
       .hero { grid-template-columns: 1fr; padding-top: 3rem; gap: 2.5rem; }
       .hero-photo { order: -1; }
@@ -220,6 +251,7 @@
       .hero-text h1 { font-size: 2.2rem; }
       nav { padding: 1rem 1.25rem; }
       .nav-links a { margin-left: 1.1rem; }
+      .projects-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -258,15 +290,12 @@
     <p>I believe learning is a lifelong journey. Some of my most meaningful lessons have come from conversations, mentors, and unexpected experiences. I try to approach every opportunity with curiosity and a desire to leave things better than I found them. My faith in God is the foundation that shapes how I try to live and work.</p>
   </div>
 
-  <div class="section" id="projects">
+  <div class="section-projects" id="projects">
     <p class="section-label">Projects</p>
     <div class="projects-grid">
 
-      <a class="project-card" href="https://business.edf.org/climate-corps/projects/brandsafway-christian-dadzie-2025/" target="_blank">
-        <div class="card-image">
-          <img src="https://business.edf.org/app/uploads/2026/01/FellowshipPhoto_2025_U.S._Christian_Dadzie_14_10_2025_1_58_14.jpg" alt="EDF Climate Corps Fellowship photo" />
-        </div>
-        <h3>Fleet Decarbonization Roadmap - BrandSafway - EDF Climate Corps</h3>
+      <a class="project-card accent-blue" href="https://business.edf.org/climate-corps/projects/brandsafway-christian-dadzie-2025/" target="_blank">
+        <h3>Fleet Decarbonization Roadmap &mdash; BrandSafway &middot; EDF Climate Corps</h3>
         <p>Developed a data-driven roadmap to reduce fuel consumption and GHG emissions across BrandSafway&#39;s North American fleet. Quantified ~$1.5M in potential cost avoidance and up to 3,400 MT CO&#x2082; through behavioral, organizational, and technology analysis of telematics data.</p>
         <div class="tags">
           <span class="tag">Python</span>
@@ -277,10 +306,7 @@
         </div>
       </a>
 
-      <a class="project-card" href="https://github.com/christiandadzie/chicago-solar-suitability-gis" target="_blank">
-        <div class="card-image">
-          <img src="img-chicago.jpg" alt="Belmont Cragin solar suitability map - Chicago" />
-        </div>
+      <a class="project-card accent-orange" href="https://github.com/christiandadzie/chicago-solar-suitability-gis" target="_blank">
         <h3>Chicago Solar Suitability Analysis</h3>
         <p>GIS-based analysis identifying the most solar-suitable neighborhoods in Chicago using rooftop potential, grid infrastructure, and demographic data. Found Belmont Cragin as the highest-priority corridor.</p>
         <div class="tags">
@@ -291,10 +317,7 @@
         </div>
       </a>
 
-      <a class="project-card" href="https://github.com/christiandadzie/final-project-solar-team" target="_blank">
-        <div class="card-image">
-          <img src="img-equity.jpg" alt="U.S. county solar equity priority map" />
-        </div>
+      <a class="project-card accent-green" href="https://github.com/christiandadzie/final-project-solar-team" target="_blank">
         <h3>Solar Energy Equity &amp; Data Science</h3>
         <p>County-level analysis identifying where high energy burden and solar potential overlap across the U.S., combining k-means clustering with spatial autocorrelation to understand patterns in solar adoption and socioeconomic need.</p>
         <div class="tags">
@@ -305,10 +328,7 @@
         </div>
       </a>
 
-      <a class="project-card" href="https://github.com/christiandadzie/methane-flux-okavango" target="_blank">
-        <div class="card-image">
-          <img src="img-okavango.jpg" alt="Okavango Delta spatial raster" />
-        </div>
+      <a class="project-card accent-purple" href="https://github.com/christiandadzie/methane-flux-okavango" target="_blank">
         <h3>Mapping Methane Across the Okavango Delta</h3>
         <p>Used global FLUXNET tower data to train a Random Forest model predicting wetland methane emissions, then applied it spatially to map seasonal flux patterns across the Okavango Delta, one of Africa&#39;s largest and most carbon-significant wetland ecosystems.</p>
         <div class="tags">
@@ -336,7 +356,7 @@
         <img src="https://business.edf.org/app/uploads/2026/01/FellowshipPhoto_2025_U.S._Christian_Dadzie_14_10_2025_1_58_14.jpg" alt="Christian Dadzie - EDF Climate Corps 2025" />
         <div class="featured-article-body">
           <p class="source">EDF Climate Corps</p>
-          <h3>BrandSafway Fleet Decarbonization - Christian Dadzie, 2025</h3>
+          <h3>BrandSafway Fleet Decarbonization &mdash; Christian Dadzie, 2025</h3>
         </div>
       </a>
       <div class="featured-embed">
